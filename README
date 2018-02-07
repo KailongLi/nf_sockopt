@@ -15,9 +15,8 @@
 解除：nf_unregister_sockopt(struct nf_sockopt_ops *sockops)
 
 结构体 nf_sockopt_ops test_sockops 
-[cpp] view plain copy
 
- 
+``` 
 static struct nf_sockopt_ops nso = {  
  .pf  = PF_INET,       // 协议族  
  .set_optmin = 常数,    // 定义最小set命令字  
@@ -26,7 +25,8 @@ static struct nf_sockopt_ops nso = {  
  .get_optmin = 常数,    // 定义最小get命令字  
  .get_optmax = 常数+N,  // 定义最大get命令字  
  .get  = send_msg,   // 定义set处理函数  
-};  
+}; 
+```
 
 
 其中命令字不能和内核已有的重复，宜大不宜小。命令字很重要，是用来做标识符的。而且用户态和内核态要定义的相同，
